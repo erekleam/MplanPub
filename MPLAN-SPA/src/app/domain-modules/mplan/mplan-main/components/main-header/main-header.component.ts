@@ -2,7 +2,7 @@ import { Component, OnDestroy,OnInit } from '@angular/core';
 import { NavigationStart,Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { SiteMapNode, siteMap } from 'src/app/core/navigation';
+
 import { Languages } from 'src/app/translate/languages.enum';
 
 import { environment } from 'src/environments/environment';
@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./main-header.component.scss']
 })
 export class MainHeaderComponent implements OnInit,OnDestroy {
-  public menu: SiteMapNode[];
+  
   public toggle = false;
   public disablePointers = false;
   private route$: Subscription;
@@ -22,34 +22,12 @@ export class MainHeaderComponent implements OnInit,OnDestroy {
   constructor(private router: Router,private translateService: TranslateService){}
 
   public ngOnInit(): void {
-    this.menu= siteMap;
-    this.route$= this.router.events.subscribe((val) => {
-      if(val instanceof NavigationStart) {
-        this.disablePointers = true;
-        setTimeout(() => {
-          this.disablePointers = false;
-        }, 100);
-      }
-    });
+  
   }
   public ngOnDestroy(): void {
     this.route$.unsubscribe();
   }
 
-  public isActiveLink(item: SiteMapNode): boolean{
-    if(item.children) {
-      for( const child of  item.children) {
-        if(this.router.url.includes(child.routerLink)) {
-          return true;
-        }
-        if(child.children){
-          return this.isActiveLink(child);
-        }
-      }
-      return false;
-    }
-    return false;
-  }
   
 
 public changeLang(lang: Languages): void {

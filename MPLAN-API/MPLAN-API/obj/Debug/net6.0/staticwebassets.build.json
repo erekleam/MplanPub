@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "j+HrqmWkPbm01/GXIc9gsK6x0WQ7nnYjDmY4YC2sI84=",
+  "Hash": "hnxN9DSp+3z90oS/ndGzOyAhlz546V/honVx/S9jbzg=",
   "Source": "MPLAN-API",
   "BasePath": "_content/MPLAN-API",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "MPLAN-API\\wwwroot",
       "Source": "MPLAN-API",
-      "ContentRoot": "C:\\Users\\eambrosidze\\Desktop\\Monthplan-main\\Monthplan-main\\MPLAN-API\\MPLAN-API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\eambrosidze\\Desktop\\MplanPub-main\\MplanPub-main\\MPLAN-API\\MPLAN-API\\wwwroot\\",
       "BasePath": "_content/MPLAN-API",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\eambrosidze\\Desktop\\Monthplan-main\\Monthplan-main\\MPLAN-API\\MPLAN-API\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\eambrosidze\\Desktop\\MplanPub-main\\MplanPub-main\\MPLAN-API\\MPLAN-API\\wwwroot\\favicon.ico",
       "SourceId": "MPLAN-API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\eambrosidze\\Desktop\\Monthplan-main\\Monthplan-main\\MPLAN-API\\MPLAN-API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\eambrosidze\\Desktop\\MplanPub-main\\MplanPub-main\\MPLAN-API\\MPLAN-API\\wwwroot\\",
       "BasePath": "_content/MPLAN-API",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",

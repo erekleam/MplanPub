@@ -1,0 +1,177 @@
+<div class="row m-0 table-responsive panel">
+    <table class="table gr table-bordered table-hover table-condensed table-striped">
+        <thead class="panel-head spaceactions">
+            <tr>
+                <th></th>
+                <th width="320">{{ 'navigation.Status' | translate }}</th>
+                <th>{{ 'navigation.Series' | translate }}</th>
+                <th>{{ 'navigation.DocumentN' | translate }}</th>
+                <th>{{ 'navigation.Dateofregistration' | translate }}</th>
+                <th>{{ 'navigation.Typeofmessage' | translate }}</th>
+                <th>{{ 'navigation.RoadCode' | translate }}</th>
+                <th>ვაგონების რაოდენობა</th>
+                <th width="120px">{{ 'navigation.DateArrivalStation' | translate }}</th>
+                <th>{{ 'navigation.Shippingstation' | translate }}</th>
+                <th>{{ 'navigation.Destinationstation' | translate }}</th>
+                <th>{{ 'navigation.Payer' | translate }}</th>
+                <th>{{ 'navigation.Sender' | translate }}</th>
+                <th>{{ 'navigation.Recipient' | translate }}</th>
+                <th> საერთო წონა</th>
+                <th width="100px">{{ 'navigation.ShippingOrderNumber' | translate }}</th>
+                <th>{{ 'navigation.SenderFile' | translate }}</th>
+                <th>{{ 'navigation.DestinationFile' | translate }}</th>
+                <th>{{ 'navigation.AttachedFile' | translate }}</th>
+            </tr>
+            <tr>
+                <th colspan="21">
+                    <input
+                        type="text"
+                        class="form-control-sm gr-input w-100"
+                        placeholder="{{ 'navigation.Search' | translate }}" (input)="Search()"
+                        [formControl]="listFilter"
+                    />
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="
+                    let item of listForm.table
+                        | filter: listFilter.value
+                        | slice: (listForm.page - 1) * listForm.pageSize:(listForm.page - 1) * listForm.pageSize + listForm.pageSize;
+                    index as i
+                "
+                (click)="listForm.select(i)"
+                [class.selected]="i == listForm.selectedRow"
+            >
+                <td>
+                    <a
+                        [routerLink]="['/smgs/' + item.docId + '']"
+                        target="_blank"
+                        class="btn gr-btn gr-input white"
+                        [delay]="200"
+                        placement="bottom"
+                        tooltip="{{ 'navigation.View' | translate }}"
+                    >
+                        <i class="far fa-edit"></i>
+                    </a>
+                </td>
+                <td ng-class="{ redColor: item.status == -1, greenColor: item.status == 512 }">
+                    {{ item.statusName }}
+                </td>
+                <td>
+                    {{ item.sr }}
+                </td>
+                <td>
+                    {{ item.docN }}
+                </td>
+                <td>
+                    <div>{{ item.dateFrom | date: 'dd/MM/yyyy HH:mm' }}</div>
+                </td>
+                <td>
+                    {{ item.saxeoba_uni }}
+                </td>
+
+                <td>
+                    {{ item.docWay }}
+                </td>
+                <td >
+                    {{ item.vagonCount }}
+                </td>
+                <td>
+                    {{ item.stationDate | date: 'dd/MM/yyyy HH:mm' }}
+                </td>
+
+                <td>
+                    {{ item.stationFrom }}
+                    {{ item.stationFromName }}
+                </td>
+                <td>
+                    {{ item.stationTo }}
+                    {{ item.stationToName }}
+                </td>
+                <td>
+                    {{ item.customerPayer }}
+                    {{ item.customerPayerName }}
+                </td>
+                <td>
+                    {{ item.customerSender }}
+                    {{ item.customerSenderName }}
+                </td>
+                <td>
+                    {{ item.customerReceiver }}
+                    {{ item.customerReceiverName }}
+                </td>
+                <td> {{item.totalWeight}}</td>
+                <td>
+                    {{ item.orderID }}
+                </td>
+                <td>
+                    <div *ngIf="+item.status < 32">
+                        <button
+                        (click)="loadTempFile(item.docId,  item.sr=='GR'?2:1)"
+                            class="btn gr-btn"
+                            [delay]="200"
+                            placement="bottom"
+                            tooltip="{{ 'navigation.SendStationFormed' | translate }}"
+                        >
+                            <i class="fas fa-file-pdf"></i>
+                        </button>
+                    </div>
+
+                    <div *ngIf="+item.status >= 32 && +item.status <128">
+                        <button
+                        (click)="loadFile(item.docId, 0, item.sr=='GR'?2:1)"
+                            class="btn gr-btn"
+                            [delay]="200"
+                            placement="bottom"
+                            tooltip="{{ 'navigation.SendStationFormed' | translate }}"
+                        >
+                            <i class="fas fa-file-pdf"></i>
+                        </button>
+                    </div>
+                </td>
+
+                <td>
+                    <div *ngIf="+item.status >= 128">
+                        <button
+                        (click)="loadFile(item.docId, 1,item.sr=='GR'?2:1)"
+                            class="btn gr-btn"
+                            [delay]="200"
+                            placement="left"
+                            tooltip="{{ 'navigation.DestinationStationFormed' | translate }}"
+                        >
+                            <i class="fas fa-file-pdf"></i>
+                        </button>
+                    </div>
+                </td>
+                <td>
+                    <button
+                        (click)="showDocs(item.docId, item.status)"
+                        [delay]="200"
+                        placement="left"
+                        tooltip="{{ 'navigation.ViewFiles' | translate }}"
+                        class="btn gr-btn info"
+                    >
+                        <i class="fas fa-file-upload"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="listForm?.table?.length > listForm.pageSize" class="row m-0 justify-content-center mt-4">
+    <pagination
+        [(ngModel)]="listForm.page"
+        [totalItems]="listForm.table?.length"
+        [boundaryLinks]="true"
+        [itemsPerPage]="listForm.pageSize"
+        [rotate]="true"
+        [maxSize]="5"
+        previousText="&lsaquo;"
+        nextText="&rsaquo;"
+        firstText="&laquo;"
+        lastText="&raquo;"
+        class="pag"
+    ></pagination>
+</div>

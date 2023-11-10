@@ -18,31 +18,40 @@ import { LoadFormComponent } from './mplan-main/components/load-form/load-form.c
 import { MplanActionButtonsComponent } from './mplan-main/components/mplan-action-buttons/mplan-action-buttons.component';
 import { MplanHeaderComponent } from './mplan-main/components/mplan-header/mplan-header.component';
 import { MainHeaderComponent } from './mplan-main/components/main-header/main-header.component';
+import { SharedModule } from "../../shared/shared.module";
+import { MplanListsComponent } from './mplan-lists/mplan-lists.component';
+import { MplanListTableComponent } from './mplan-lists/components/mplan-list-table/mplan-list-table.component';
+import { MplanListActionsComponent } from './mplan-lists/components/mplan-list-actions/mplan-list-actions.component';
+import { TestComponent } from './mplan-lists/components/test/test.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @NgModule({
-  declarations: [
-    MplanMainComponent,
-    PayerFormComponent,
-    CountryFormComponent,
-    FeedbackFormComponent,
-    FooterComponent,
-    LoadFormComponent,
-    MplanActionButtonsComponent,
-    MplanHeaderComponent,
-    MainHeaderComponent
-
-  ],
-  imports: [
-    CommonModule,
-    MplanRoutingModule,
-    ReactiveFormsModule,
-    TabsModule.forRoot(),
-    TooltipModule.forRoot(),
-    FormsModule,
-    BsDatepickerModule.forRoot(),
-    PaginationModule.forRoot(),
-    GrTranslateModule.forRoot(),
-    
-  ]
+    declarations: [
+        MplanMainComponent,
+        PayerFormComponent,
+        CountryFormComponent,
+        FeedbackFormComponent,
+        FooterComponent,
+        LoadFormComponent,
+        MplanActionButtonsComponent,
+        MplanHeaderComponent,
+        MainHeaderComponent,
+        MplanListTableComponent,
+        MplanListsComponent,
+        MplanListActionsComponent,
+        TestComponent
+    ],
+    imports: [
+        CommonModule,
+        MplanRoutingModule,
+        ReactiveFormsModule,
+        TabsModule.forRoot(),
+        TooltipModule.forRoot(),
+        FormsModule,
+        BsDatepickerModule.forRoot(),
+        PaginationModule.forRoot(),
+        GrTranslateModule.forRoot(),
+        SharedModule
+    ]
 })
 export class MplanModule { }

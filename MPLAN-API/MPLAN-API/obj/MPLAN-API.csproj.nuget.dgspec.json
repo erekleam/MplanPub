@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eambrosidze\\Desktop\\Monthplan-main\\Monthplan-main\\MPLAN-API\\MPLAN-API\\MPLAN-API.csproj": {}
+    "C:\\Users\\eambrosidze\\Desktop\\MplanPub-main\\MplanPub-main\\MPLAN-API\\MPLAN-API\\MPLAN-API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eambrosidze\\Desktop\\Monthplan-main\\Monthplan-main\\MPLAN-API\\MPLAN-API\\MPLAN-API.csproj": {
+    "C:\\Users\\eambrosidze\\Desktop\\MplanPub-main\\MplanPub-main\\MPLAN-API\\MPLAN-API\\MPLAN-API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eambrosidze\\Desktop\\Monthplan-main\\Monthplan-main\\MPLAN-API\\MPLAN-API\\MPLAN-API.csproj",
+        "projectUniqueName": "C:\\Users\\eambrosidze\\Desktop\\MplanPub-main\\MplanPub-main\\MPLAN-API\\MPLAN-API\\MPLAN-API.csproj",
         "projectName": "MPLAN-API",
-        "projectPath": "C:\\Users\\eambrosidze\\Desktop\\Monthplan-main\\Monthplan-main\\MPLAN-API\\MPLAN-API\\MPLAN-API.csproj",
+        "projectPath": "C:\\Users\\eambrosidze\\Desktop\\MplanPub-main\\MplanPub-main\\MPLAN-API\\MPLAN-API\\MPLAN-API.csproj",
         "packagesPath": "C:\\Users\\eambrosidze\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eambrosidze\\Desktop\\Monthplan-main\\Monthplan-main\\MPLAN-API\\MPLAN-API\\obj\\",
+        "outputPath": "C:\\Users\\eambrosidze\\Desktop\\MplanPub-main\\MplanPub-main\\MPLAN-API\\MPLAN-API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

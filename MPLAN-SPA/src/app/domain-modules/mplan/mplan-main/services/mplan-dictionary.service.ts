@@ -12,7 +12,7 @@ import { IHeaderResponse } from '../../models/header-response';
 export class MplanDictionaryService {
   private apiUrl: string = environment.apiUrl;
 
-  constructor(private http: HttpClient, private translate: TranslateService) {
+  constructor(private http: HttpClient, private translateService: TranslateService) {
     }
 
     public getDictionaries(){

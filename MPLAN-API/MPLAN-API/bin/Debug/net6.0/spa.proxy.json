@@ -2,7 +2,7 @@
 "SpaProxyServer": {
 "ServerUrl": "",
 "LaunchCommand": "",
-"WorkingDirectory": "C:\\Users\\eambrosidze\\Desktop\\Monthplan-main\\Monthplan-main\\MPLAN-API\\MPLAN-API",
+"WorkingDirectory": "C:\\Users\\eambrosidze\\Desktop\\MplanPub-main\\MplanPub-main\\MPLAN-API\\MPLAN-API",
 "MaxTimeoutInSeconds": "120"
 }
 }
