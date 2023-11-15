@@ -1,10 +1,14 @@
 ﻿using MPLAN_API.Models;
-
 using MPLAN_API.Data;
+using System.Data;
+using System.Net;
+using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Extensions;
+using MPLAN_API.Core;
 using MPLAN_API.Core.Dictionaries;
 using MPLAN_API.Core.Enums;
-using System.Data;
 using static MPLAN_API.Data.DatabaseConnections;
 using MPLAN_API.Core.Constants;
 using System.Collections.Concurrent;
@@ -15,7 +19,6 @@ namespace MPLAN_API.Repositories
 {
     public class DictionaryRepository
     {
-
 		private readonly LocationDb _locationDb;
 		private readonly IodvnakDb _IodvnakDb;
 
@@ -76,7 +79,22 @@ namespace MPLAN_API.Repositories
 			return await conn.DapperQueryFirstAsync<DictionaryClasses>(sql, _params, cancellationToken: cancellationToken);
 
 		}
-		/*public async Task<IEnumerable<DictionaryWithId>> GetSmgsAsync(
+
+        /*public async Task<IEnumerable<MplanGetList>> getMplanList()
+		{
+			string sql = "MonthPlan_SP_Get_List";
+			return await new DapperActions().DapperQuery<MplanGetList>(_connections.DictionaryConn, sql);
+		}
+		*/
+        public async Task<IEnumerable<MplanGetList>> getMplanList(CancellationToken cancellationToken = default)
+        {
+            string sql = "MonthPlan_SP_Get_List";
+            using IDbConnection conn = await _IodvnakDb(cancellationToken);
+            return await conn.DapperQueryAsync<MplanGetList>(sql, cancellationToken: cancellationToken);
+        }
+
+
+        /*public async Task<IEnumerable<DictionaryWithId>> GetSmgsAsync(
 		string type,
 		Language language = Language.Ka,
 		CancellationToken cancellationToken = default)
@@ -115,7 +133,7 @@ namespace MPLAN_API.Repositories
 			}));
 			return results;
 		}*/
-	}
+    }
 
 
 

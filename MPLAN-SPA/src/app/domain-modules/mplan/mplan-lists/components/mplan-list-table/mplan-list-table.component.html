@@ -2,32 +2,24 @@
     <table class="table gr table-bordered table-hover table-condensed table-striped">
         <thead class="panel-head spaceactions">
             <tr>
-                <th></th>
-                <th width="320">{{ 'navigation.Status' | translate }}</th>
-                <th>{{ 'navigation.Series' | translate }}</th>
-                <th>{{ 'navigation.DocumentN' | translate }}</th>
-                <th>{{ 'navigation.Dateofregistration' | translate }}</th>
-                <th>{{ 'navigation.Typeofmessage' | translate }}</th>
-                <th>{{ 'navigation.RoadCode' | translate }}</th>
-                <th>ვაგონების რაოდენობა</th>
-                <th width="120px">{{ 'navigation.DateArrivalStation' | translate }}</th>
-                <th>{{ 'navigation.Shippingstation' | translate }}</th>
-                <th>{{ 'navigation.Destinationstation' | translate }}</th>
-                <th>{{ 'navigation.Payer' | translate }}</th>
-                <th>{{ 'navigation.Sender' | translate }}</th>
-                <th>{{ 'navigation.Recipient' | translate }}</th>
-                <th> საერთო წონა</th>
-                <th width="100px">{{ 'navigation.ShippingOrderNumber' | translate }}</th>
-                <th>{{ 'navigation.SenderFile' | translate }}</th>
-                <th>{{ 'navigation.DestinationFile' | translate }}</th>
-                <th>{{ 'navigation.AttachedFile' | translate }}</th>
+                <th>განაცხადის ნომერი</th>
+                <th>ფაილის ტიპი</th>
+                <th>გადაზიდვის სახეობა</th>
+                <th>გამგზავნი ქვეყანა</th>
+                <th>გამგზავნი სადგური</th>
+                <th>მიმღები ქვეყანა</th>
+                <th>მიმღები სადგური</th>
+                <th>ტვირთი GNG</th>
+                <th>ტვირთის წონა </th>
+                <th>გზავნილის სახეობა</th>
+                <th>ოპერაციის თარიღი</th>
             </tr>
             <tr>
                 <th colspan="21">
                     <input
                         type="text"
                         class="form-control-sm gr-input w-100"
-                        placeholder="{{ 'navigation.Search' | translate }}" (input)="Search()"
+                        placeholder="ძებნა" (input)="Search()"
                         [formControl]="listFilter"
                     />
                 </th>
@@ -44,7 +36,7 @@
                 (click)="listForm.select(i)"
                 [class.selected]="i == listForm.selectedRow"
             >
-                <td>
+                <!-- <td>
                     <a
                         [routerLink]="['/smgs/' + item.docId + '']"
                         target="_blank"
@@ -55,58 +47,44 @@
                     >
                         <i class="far fa-edit"></i>
                     </a>
-                </td>
+                </td> -->
                 <td ng-class="{ redColor: item.status == -1, greenColor: item.status == 512 }">
-                    {{ item.statusName }}
+                    {{ item.statementType }}
                 </td>
                 <td>
-                    {{ item.sr }}
+                    {{ item.fileType }}
                 </td>
                 <td>
-                    {{ item.docN }}
+                    {{ item.loadType }}
                 </td>
+                
                 <td>
-                    <div>{{ item.dateFrom | date: 'dd/MM/yyyy HH:mm' }}</div>
-                </td>
-                <td>
-                    {{ item.saxeoba_uni }}
+                    {{ item.senderCountry }}
                 </td>
 
                 <td>
-                    {{ item.docWay }}
+                    {{ item.senderStation }}
+                </td>
+
+                <td>
+                    {{ item.receiverCountry }}
                 </td>
                 <td >
-                    {{ item.vagonCount }}
+                    {{ item.receiverStation }}
                 </td>
                 <td>
-                    {{ item.stationDate | date: 'dd/MM/yyyy HH:mm' }}
-                </td>
-
-                <td>
-                    {{ item.stationFrom }}
-                    {{ item.stationFromName }}
+                    {{ item.tvirtiGNG }}
                 </td>
                 <td>
-                    {{ item.stationTo }}
-                    {{ item.stationToName }}
+                    {{ item.tvirtiWona }}
                 </td>
                 <td>
-                    {{ item.customerPayer }}
-                    {{ item.customerPayerName }}
+                    {{ item.gzavnilisSaxeoba }}
                 </td>
                 <td>
-                    {{ item.customerSender }}
-                    {{ item.customerSenderName }}
+                    {{ item.dateFrom| date: 'dd/MM/yyyy' }}
                 </td>
-                <td>
-                    {{ item.customerReceiver }}
-                    {{ item.customerReceiverName }}
-                </td>
-                <td> {{item.totalWeight}}</td>
-                <td>
-                    {{ item.orderID }}
-                </td>
-                <td>
+                <!-- <td>
                     <div *ngIf="+item.status < 32">
                         <button
                         (click)="loadTempFile(item.docId,  item.sr=='GR'?2:1)"
@@ -155,12 +133,12 @@
                     >
                         <i class="fas fa-file-upload"></i>
                     </button>
-                </td>
+                </td> -->
             </tr>
         </tbody>
     </table>
 </div>
-<div *ngIf="listForm?.table?.length > listForm.pageSize" class="row m-0 justify-content-center mt-4">
+<div *ngIf="listForm?.table?.length > listForm.pageSize" class="row m-0 justify-content-center mt-4 centerpaging">
     <pagination
         [(ngModel)]="listForm.page"
         [totalItems]="listForm.table?.length"

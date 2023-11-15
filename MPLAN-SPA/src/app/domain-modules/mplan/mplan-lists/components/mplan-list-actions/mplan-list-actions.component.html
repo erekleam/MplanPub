@@ -2,7 +2,7 @@
 <div class="row m-0 dates">
     <div class="col-md p-md-0 d-flex align-items-center label mb-2">
         <!-- <label>{{ 'navigation.Period' | translate }}: </label> -->
-        <label>{{ 'navigation.Period' | translate }}:</label>
+        <label>პერიოდი:</label>
     </div>
 
     <div class="input-group col-md-2 search-dates">
@@ -37,8 +37,8 @@
             class="btn gr-btn gr-input"
             [delay]="200"
             placement="bottom"
-            tooltip="{{ 'navigation.Search' | translate }}"
-            (click)="listForm.getSmgsList()"
+            tooltip="ძებნა"
+            (click)="listForm.getMplanList()"
         >
             <i class="far fa-arrow-alt-circle-right"></i>
         </button>
@@ -46,11 +46,11 @@
     <div class="radio-buttons col-md mb-2">
         <div class="col p-0 d-flex align-items-center">
             <input type="radio" id="sign1" class="gr-check" name="docSign" value="1" [formControl]="listForm.doc" />
-            <label for="sign1" class="m-0 ml-1">{{ 'navigation.Local' | translate }}</label>
+            <label for="sign1" class="m-0 ml-1">ადგილობრივი</label>
         </div>
         <div class="col p-0 d-flex align-items-center">
             <input type="radio" id="sign2" class="gr-check" name="docSign" value="2" [formControl]="listForm.doc" />
-            <label for="sign2" class="m-0 ml-1">{{ 'navigation.International' | translate }}</label>
+            <label for="sign2" class="m-0 ml-1">საერთაშორისო</label>
         </div>
     </div>
 

@@ -3,6 +3,7 @@ using MPLAN_API.Core.Constants;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Numerics;
 
 namespace MPLAN_API.Models
 {
@@ -80,6 +81,22 @@ namespace MPLAN_API.Models
     {
         public int HeaderId { get; set; }
     }
+    public class MplanGetList
+    {
+        public string StatementType { get; set; } = string.Empty;
+        public string FileType { get; set; } = string.Empty;
+        
+        public string LoadType { get; set; } = string.Empty;
+        public string SenderCountry { get; set; } = string.Empty;
+        public string SenderStation { get; set; } = string.Empty;
 
-  
+        public string ReceiverCountry { get; set; } = string.Empty;
+        public string ReceiverStation { get; set; } = string.Empty;
+        public string TvirtiGNG { get; set; } = string.Empty;
+        public int TvirtiWona { get; set; }
+        public string GzavnilisSaxeoba { get; set; } = string.Empty;
+        public DateTime DateFrom { get; set; }
+    }
+
+
 }

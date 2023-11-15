@@ -1,19 +1,25 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { MplanFull } from '../../models/full-mplan.model';
+import { MplanFull, MplanGetList } from '../../models/full-mplan.model';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListAllService {
-  private apiUrl: string = environment.apiUrl + '/smgs';
+    private apiUrl: string = environment.apiUrl;
 
   constructor(private http: HttpClient,private translateService: TranslateService) {}
 
-  public getSmgsList(dateFrom: Date, dateTo: Date, signDoc: number, idNum: number = 1, vagonNumber:number) {
-      return this.http.post<MplanFull[]>(this.apiUrl + '/get-list-all', { DateFrom: dateFrom, DateTo: dateTo,SignDoc:signDoc, IdNum: +idNum, VagonNumber: +vagonNumber  });
+
+    //public getMplanList(fromDate: Date,toDate : Date) {
+  public getMplanList() {
+    //tarigebis mixedvit siis gadawodeba
+    // let params = new HttpParams();
+    //   params = params.append('fromDate', '' + fromDate);
+    //   params = params.append('toDate', '' + toDate);
+      return this.http.get<MplanGetList[]>(this.apiUrl + '/dictionary/get-list-all', {});
   }
 
   public loadFile(id: number, docType: number,docSign:number) {

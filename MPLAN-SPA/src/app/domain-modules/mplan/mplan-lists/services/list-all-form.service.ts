@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MplanFull } from '../../models/full-mplan.model';
+import { MplanFull, MplanGetList } from '../../models/full-mplan.model';
 import { ListAllService } from './list-all.service';
 
 
@@ -14,17 +14,15 @@ export class ListAllFormService {
   public dateFrom: FormControl;
   public dateTo: FormControl;
   public doc: FormControl;
-  public table: MplanFull[];
+  public table: MplanGetList[];
   public selected = null;
   public selectedRow = null;
   public loading = false;
 
   public page = 1;
-  public pageSize = 5;
-  public vagonNumberSearch: FormControl;
+  public pageSize = 20;
 
   constructor(private listService: ListAllService) {
-      this.vagonNumberSearch = new FormControl('');
       const today = new Date();
       const yesterday = new Date();
       today.setHours(23, 59, 59, 999);
@@ -38,7 +36,7 @@ export class ListAllFormService {
       this.text = new FormControl('');
   }
 
-  public getSmgsList() {
+  public getMplanList() {
       this.table = [];
       this.selected = null;
       this.selectedRow = null;
@@ -48,9 +46,9 @@ export class ListAllFormService {
 
       const fromDate = new Date(new Date(this.dateFrom.value.getTime() - this.dateFrom.value.getTimezoneOffset() * 60000).toJSON());
       const toDate = new Date(new Date(this.dateTo.value.getTime() - this.dateTo.value.getTimezoneOffset() * 60000).toJSON());
-
+    //.getMplanList(fromDate,toDate)
       return this.listService
-          .getSmgsList(fromDate, toDate, +this.doc.value, +this.code.value === 0 ? 1 : +this.code.value,this.vagonNumberSearch.value)
+          .getMplanList()
           .subscribe(
               (data) => {
                   this.table = data;

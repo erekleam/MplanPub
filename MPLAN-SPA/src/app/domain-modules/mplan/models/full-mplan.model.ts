@@ -42,6 +42,20 @@ export interface MplanHeader{
     FeedbackNote: string;
 }
 
+export interface MplanGetList{
+    statementType: string;
+    FileType: string;
+    LoadType: string;
+    SenderCountry: string;
+    SenderStation: string;
+    ReceiverCountry: string;
+    ReceiverStation: string;
+    TvirtiGNG: string;
+    TvirtiWona: number;
+    GzavnilisSaxeoba: string;
+    DateFrom: Date;
+}
+
 
 
 export interface MplanMestranDetails{

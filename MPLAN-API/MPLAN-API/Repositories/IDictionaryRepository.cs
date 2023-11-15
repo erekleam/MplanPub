@@ -11,6 +11,7 @@ namespace MPLAN_API.Repositories
         /*Task<DictionaryClasses> Dictionary();*/
         Task<IEnumerable<DictionaryWithPairAndTotal>> GetAsync(string name, string code, string search, string? filter, int? pageIndex, int? pageSize, Language language = Language.Ka, CancellationToken cancellationToken = default);
         Task<IEnumerable<DictionaryClasses>> insertData(DataTable Header, DataTable Details,CancellationToken cancellationToken = default);
+        Task<IEnumerable<MplanGetList>> getMplanList();
         /*Task<IEnumerable<DictionaryWithId>> GetAsync(string type, Language language = Language.Ka, CancellationToken cancellationToken = default);
         Task<IEnumerable<DictionaryWithId>> GetAsync(IDbConnection conn, string type, Language language = Language.Ka,CancellationToken cancellationToken = default);*/
 

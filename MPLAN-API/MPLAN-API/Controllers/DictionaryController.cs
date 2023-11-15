@@ -79,6 +79,25 @@ namespace MPLAN_API.Controllers
 			return Ok(await _repo.insertData(Header,Details));
 
 		}
+        [HttpGet("get-list-all")]
+        public async Task<IActionResult> getMplanList()
+        {
+            var result = await _repo.getMplanList();
+            return Ok(result);
+        }
+
+
+		/*[HttpGet("get-list-all")]
+		public async Task<IActionResult> getMplanList(DateTime fromDate, DateTime toDate)
+		{
+			var result = await _repo.getMplanList();
+			return Ok(result);
+		}*/
+
+
+
+
+
 
 
 		//[HttpGet("get-list")]
