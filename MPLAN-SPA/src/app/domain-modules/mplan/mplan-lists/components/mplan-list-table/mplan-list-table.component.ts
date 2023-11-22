@@ -32,10 +32,12 @@ export class MplanListTableComponent {
     ) {}
 
     public ngOnInit(): void {
-        // this.listForm.doc.valueChanges.subscribe((x) => {
-        //     this.listForm.getMplanList();
-        // });
-        this.listForm.getMplanList();
+        this.listForm.doc.valueChanges.subscribe((x) => {
+            this.listForm.getMplanList();
+            console.log(this.listForm.doc.value)
+        });
+        
+        
         
     }
 

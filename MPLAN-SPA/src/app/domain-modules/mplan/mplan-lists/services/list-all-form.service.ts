@@ -18,7 +18,7 @@ export class ListAllFormService {
   public selected = null;
   public selectedRow = null;
   public loading = false;
-
+  public isUpdate = false;
   public page = 1;
   public pageSize = 20;
 
@@ -45,10 +45,12 @@ export class ListAllFormService {
 
 
       const fromDate = new Date(new Date(this.dateFrom.value.getTime() - this.dateFrom.value.getTimezoneOffset() * 60000).toJSON());
+      console.log(fromDate)
       const toDate = new Date(new Date(this.dateTo.value.getTime() - this.dateTo.value.getTimezoneOffset() * 60000).toJSON());
+      console.log(toDate)
     //.getMplanList(fromDate,toDate)
       return this.listService
-          .getMplanList()
+          .getMplanList(fromDate,toDate, +this.doc.value)
           .subscribe(
               (data) => {
                   this.table = data;

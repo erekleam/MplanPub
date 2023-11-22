@@ -46,7 +46,7 @@ export class FormService {
 
   public createCountryForm(): void {
     this.countryForm = this.fb.group({
-        senderCountry: new FormControl('28'),
+        senderCountry: new FormControl('268'),
         senderCountryText: new FormControl('ГРУЗИЯ'),
         // senderNote: new FormControl(''),
 

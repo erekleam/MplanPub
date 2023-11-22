@@ -79,10 +79,10 @@ namespace MPLAN_API.Controllers
 			return Ok(await _repo.insertData(Header,Details));
 
 		}
-        [HttpGet("get-list-all")]
-        public async Task<IActionResult> getMplanList()
+        [HttpPost("get-list-all")]
+        public async Task<IActionResult> getMplanList(DateRequest request)
         {
-            var result = await _repo.getMplanList();
+            var result = await _repo.getMplanList(request.FromDate,request.ToDate, request.SignDoc);
             return Ok(result);
         }
 

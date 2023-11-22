@@ -14,12 +14,8 @@ export class ListAllService {
 
 
     //public getMplanList(fromDate: Date,toDate : Date) {
-  public getMplanList() {
-    //tarigebis mixedvit siis gadawodeba
-    // let params = new HttpParams();
-    //   params = params.append('fromDate', '' + fromDate);
-    //   params = params.append('toDate', '' + toDate);
-      return this.http.get<MplanGetList[]>(this.apiUrl + '/dictionary/get-list-all', {});
+  public getMplanList(fromDate: Date,toDate : Date,signDoc: number,) {
+      return this.http.post<MplanGetList[]>(this.apiUrl + '/dictionary/get-list-all', {FromDate: fromDate, ToDate: toDate,SignDoc:signDoc});
   }
 
   public loadFile(id: number, docType: number,docSign:number) {

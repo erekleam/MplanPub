@@ -86,11 +86,26 @@ namespace MPLAN_API.Repositories
 			return await new DapperActions().DapperQuery<MplanGetList>(_connections.DictionaryConn, sql);
 		}
 		*/
-        public async Task<IEnumerable<MplanGetList>> getMplanList(CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<MplanGetList>> getMplanList(DateTime FromDate , DateTime ToDate, int SignDoc,CancellationToken cancellationToken = default)
         {
-            string sql = "MonthPlan_SP_Get_List";
-            using IDbConnection conn = await _IodvnakDb(cancellationToken);
-            return await conn.DapperQueryAsync<MplanGetList>(sql, cancellationToken: cancellationToken);
+            try
+            {
+				string sql = "MonthPlan_SP_Get_List";
+				using IDbConnection conn = await _IodvnakDb(cancellationToken);
+				return await conn.DapperQueryAsync<MplanGetList>(sql, new
+				{
+					FromDate = FromDate,
+					ToDate = ToDate,
+					SignDoc = SignDoc,
+				},
+					cancellationToken: cancellationToken);
+			}
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
         }
 
 

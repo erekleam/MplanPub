@@ -47,10 +47,14 @@ export interface MplanGetList{
     FileType: string;
     LoadType: string;
     SenderCountry: string;
+    SenderCountryName: string;
     SenderStation: string;
+    SenderStationName: string;
     ReceiverCountry: string;
+    ReceiverCountryName: string;
     ReceiverStation: string;
     TvirtiGNG: string;
+    TvirtiGNGName: string;
     TvirtiWona: number;
     GzavnilisSaxeoba: string;
     DateFrom: Date;

@@ -2,6 +2,7 @@
     <table class="table gr table-bordered table-hover table-condensed table-striped">
         <thead class="panel-head spaceactions">
             <tr>
+                <th></th>
                 <th>განაცხადის ნომერი</th>
                 <th>ფაილის ტიპი</th>
                 <th>გადაზიდვის სახეობა</th>
@@ -36,9 +37,9 @@
                 (click)="listForm.select(i)"
                 [class.selected]="i == listForm.selectedRow"
             >
-                <!-- <td>
+                 <td>
                     <a
-                        [routerLink]="['/smgs/' + item.docId + '']"
+                        [routerLink]="['/MPLAN/Mplan/' + item.headeId + '']"
                         target="_blank"
                         class="btn gr-btn gr-input white"
                         [delay]="200"
@@ -47,7 +48,7 @@
                     >
                         <i class="far fa-edit"></i>
                     </a>
-                </td> -->
+                </td> 
                 <td ng-class="{ redColor: item.status == -1, greenColor: item.status == 512 }">
                     {{ item.statementType }}
                 </td>
@@ -60,20 +61,24 @@
                 
                 <td>
                     {{ item.senderCountry }}
+                    {{ item.senderCountryName }}
                 </td>
 
                 <td>
                     {{ item.senderStation }}
+                    <!-- {{item.senderStationName}} -->
                 </td>
 
                 <td>
                     {{ item.receiverCountry }}
+                    {{ item.receiverCountryName }}
                 </td>
                 <td >
                     {{ item.receiverStation }}
                 </td>
                 <td>
                     {{ item.tvirtiGNG }}
+                    {{ item.tvirtiGNGName}}
                 </td>
                 <td>
                     {{ item.tvirtiWona }}
@@ -139,6 +144,7 @@
     </table>
 </div>
 <div *ngIf="listForm?.table?.length > listForm.pageSize" class="row m-0 justify-content-center mt-4 centerpaging">
+    <div class="paginationss">
     <pagination
         [(ngModel)]="listForm.page"
         [totalItems]="listForm.table?.length"
@@ -152,4 +158,5 @@
         lastText="&raquo;"
         class="pag"
     ></pagination>
+</div>
 </div>

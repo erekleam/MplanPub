@@ -18,7 +18,7 @@
                                 formControlName="senderCountry"
                                 (input)="
                                     ModalService.getDictionary(
-                                        'CountriesLong',
+                                        'LCountriesAll',
                                         form.countryForm.get('senderCountry'),
                                         form.countryForm.get('senderCountryText')
                                     )
@@ -38,7 +38,7 @@
                                 disabled="true"
                                 (click)="
                                 ModalService.openDictionaryModal(
-                                    'CountriesLong',
+                                    'LCountriesAll',
                                     form.countryForm.get('senderCountry'),
                                     form.countryForm.get('senderCountryText')
                                 )
@@ -137,7 +137,7 @@
                                 
                                 (input)="
                                     ModalService.getDictionary(
-                                        'CountriesLong',
+                                        'LCountriesAll',
                                         form.countryForm.get('ReceiverCountry'),
                                         form.countryForm.get('ReceiverCountryText')
                                     )
@@ -154,7 +154,7 @@
                                 class="btn gr-btn gr-input ml-auto white baaaaaaat"
                                 (click)="
                                 ModalService.openDictionaryModal(
-                                    'CountriesLong',
+                                    'LCountriesAll',
                                     form.countryForm.get('ReceiverCountry'),
                                     form.countryForm.get('ReceiverCountryText')
                                 )
@@ -194,7 +194,7 @@
                                 formControlName="ReceiverStation"
                                 (input)="
                                     ModalService.getDictionary(
-                                        'RouteStations',
+                                        'WayDocAllStations',
                                         form.countryForm.get('ReceiverStation'),
                                         form.countryForm.get('ReceiverStationText'),
                                         form.countryForm.get('ReceiverCountry').value
@@ -212,7 +212,7 @@
                                 class="btn gr-btn gr-input ml-auto white baaaaaaat"
                                 (click)="
                                 ModalService.openDictionaryModal(
-                                    'RouteStations',
+                                    'WayDocAllStations',
                                     form.countryForm.get('ReceiverStation'),
                                     form.countryForm.get('ReceiverStationText'),
                                     form.countryForm.get('ReceiverCountry').value
